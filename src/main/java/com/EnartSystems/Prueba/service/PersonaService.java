@@ -24,14 +24,17 @@ public class PersonaService implements IpersonaService {
 
 	@Override
 	public Optional<Persona> listarId(int id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return data.findById(id);
 	}
 
 	@Override
 	public int save(Persona p) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res=0;
+		Persona persona=data.save(p);
+		if (!persona.equals(null)) {
+			res=1;
+		}
+		return res;
 	}
 
 	@Override
