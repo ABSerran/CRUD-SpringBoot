@@ -23,6 +23,7 @@ public class Controlador {
 	@Autowired
 	private IpersonaService service;
 
+//Recuperar un cliente
 	@GetMapping("/listar")
 	public String listar(Model model) {
 		List<Persona> personas = service.listar();
@@ -30,12 +31,14 @@ public class Controlador {
 		return "index";
 	}
 
+//Crear un nuevo cliente
 	@GetMapping("/new")
 	public String agregar(Model model) {
 		model.addAttribute("persona", new Persona());
 		return "form";
 	}
 
+//Guardar
 	@PostMapping("/save")
 	public String save(@Validated Persona p, Model model) {
 		service.save(p);
@@ -43,6 +46,7 @@ public class Controlador {
 
 	}
 	
+//Actualizar un cliente	
 	@GetMapping ("/editar/{id}")
 	public String editar(@PathVariable int id, Model model) {
 		Optional<Persona>persona=service.listarId(id);
@@ -50,6 +54,7 @@ public class Controlador {
 		return "form";
 	}
 	
+//Borrar	
 	@GetMapping ("/eliminar/{id}")
 	public String delete (Model model, @PathVariable int id) {
 		service.delete(id);
