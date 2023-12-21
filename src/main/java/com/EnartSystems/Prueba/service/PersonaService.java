@@ -18,15 +18,14 @@ public class PersonaService implements IpersonaService {
 
 	@Override
 	public List<Persona> listar() {
-
 		return (List<Persona>) data.findAll();
 	}
-
+//Recuperar un cliente por su ID	
 	@Override
 	public Optional<Persona> listarId(int id) {
 		return data.findById(id);
 	}
-
+//Guardar un cliente ya sea modificado o creado de nuevo
 	@Override
 	public int save(Persona p) {
 		int res=0;
@@ -36,10 +35,10 @@ public class PersonaService implements IpersonaService {
 		}
 		return res;
 	}
-
+//Borrar un cliente
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		data.deleteById(id);
 
 	}
 
