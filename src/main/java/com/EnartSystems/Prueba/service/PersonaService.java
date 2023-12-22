@@ -17,7 +17,10 @@ public class PersonaService implements IpersonaService {
 	private IPersona data;
 
 	@Override
-	public List<Persona> listar() {
+	public List<Persona> listar(String palabraClave) {
+		if(palabraClave != null) {
+			return data.findAll(palabraClave);
+		}
 		return (List<Persona>) data.findAll();
 	}
 //Recuperar un cliente por su ID	

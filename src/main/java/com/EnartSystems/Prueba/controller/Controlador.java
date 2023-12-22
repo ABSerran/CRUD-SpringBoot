@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -23,11 +24,13 @@ public class Controlador {
 	@Autowired
 	private IpersonaService service;
 
-//Recuperar un cliente
+//Ver todos los clientes
 	@GetMapping("/listar")
-	public String listar(Model model) {
-		List<Persona> personas = service.listar();
+	public String listar(Model model,@Param("palabraClave") String palabraClave) {
+
+		List<Persona> personas = service.listar(palabraClave);
 		model.addAttribute("personas", personas);
+		model.addAttribute("palabraClave", palabraClave);
 		return "index";
 	}
 

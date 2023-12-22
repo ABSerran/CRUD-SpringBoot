@@ -5,7 +5,7 @@ import java.util.Optional;
 import com.EnartSystems.Prueba.model.Persona;
 
 public interface IpersonaService {
-	public List<Persona>listar();
+	public List<Persona>listar(String palabraClave);
 	public Optional<Persona>listarId(int id);
 	public int save (Persona p);
 	public void delete (int id);
