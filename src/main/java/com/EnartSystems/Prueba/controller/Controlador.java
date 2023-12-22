@@ -25,7 +25,7 @@ public class Controlador {
 	private IpersonaService service;
 
 //Ver todos los clientes
-	@GetMapping("/listar")
+	@GetMapping("/")
 	public String listar(Model model,@Param("palabraClave") String palabraClave) {
 
 		List<Persona> personas = service.listar(palabraClave);
@@ -45,7 +45,7 @@ public class Controlador {
 	@PostMapping("/save")
 	public String save(@Validated Persona p, Model model) {
 		service.save(p);
-		return "redirect:/listar";
+		return "redirect:/";
 
 	}
 	
@@ -61,7 +61,7 @@ public class Controlador {
 	@GetMapping ("/eliminar/{id}")
 	public String delete (Model model, @PathVariable int id) {
 		service.delete(id);
-		return "redirect:/listar";
+		return "redirect:/";
 		
 	}
 

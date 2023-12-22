@@ -18,7 +18,7 @@ function eliminar(id) {
       			icon: "success",
     		}).then((ok)=>{
     			if (ok){
-    				location.href="/listar";
+    				location.href="/";
     			}
     		});
   		} else {
